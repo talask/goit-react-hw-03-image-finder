@@ -19,7 +19,7 @@ export const Searchbar = ({onSubmit}) => {
                 initialValues = {initialValues}
                 validationSchema = {schema}
                 onSubmit = {(values, {resetForm}) => {
-                    onSubmit(values);
+                    onSubmit(values.search, 1);
                     resetForm();
                 }}
             >

@@ -3,7 +3,7 @@ import objToStr from './objToString'
 
 const KEY_API =  '35879532-6dafaab3c006917cb9578f9fc';
 const URL = 'https://pixabay.com/api/';
-const options = {
+export const options = {
   key: KEY_API,
   image_type: 'photo',
   orientation: 'horizontal',
@@ -12,12 +12,12 @@ const options = {
   page: 1,
 }
 
-export const getPixabayAPI = async (value, page) => {
-    options.q = value;
-    options.page = page;
+export const getPixabayAPI = async () => {
+  console.log("!!!")
+   console.log(options)
     const param = objToStr(options);
     const response = await axios.get(`${URL}?${param}`);
-      console.log(response.data);
+      console.log("1 " + response);
       return response.data;
 
 }
