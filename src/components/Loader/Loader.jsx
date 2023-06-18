@@ -1,10 +1,13 @@
-import { Dna } from 'react-loader-spinner'
+import { Dna } from 'react-loader-spinner';
+import { LoaderDiv } from "./Loader.styled";
 
 export const Loader = () => {
     return (
-        <Dna
-            height="180"
-            width="180" 
-        />
+        <LoaderDiv>
+            <Dna
+                height="180"
+                width="180" 
+            />
+        </LoaderDiv>
     )
 }

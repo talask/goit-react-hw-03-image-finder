@@ -1,12 +1,17 @@
+
 import { Overlay, ModalDiv } from "./Modal.styled";
 
-export const Modal = ({url, tag, onCloseModal, onCloseModal1}) => {
+export const Modal = ({url, tag, onClose, onCloseModal1}) => {
+    
     return (
-        <Overlay onClick={onCloseModal} onLoad={onCloseModal1}>
+        <Overlay 
+       
+        onClick={onClose} onKeyDown={onCloseModal1}>
+           
             <ModalDiv>
+           
                 <img src={url} alt={tag} />
             </ModalDiv>
         </Overlay>
     )
 }
-//(e) => onCloseModal(e)
