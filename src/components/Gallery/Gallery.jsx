@@ -1,6 +1,7 @@
 import { GalleryItem } from "components/GalleryItem/GalleryItem";
 import { ImageGallery } from "./Gallery.styled";
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 export const Gallery = ({images, onLoadModal}) => {
     return (
@@ -12,4 +13,9 @@ export const Gallery = ({images, onLoadModal}) => {
 
             </ImageGallery>
     );
-    }
+}
+
+Gallery.propTypes = {
+    onLoadModal: PropTypes.func,
+    images: PropTypes.array,
+};

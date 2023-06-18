@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 import { Overlay, ModalDiv } from "./Modal.styled";
 
 export const Modal = ({url, tag, onClose, onCloseModal1}) => {
@@ -15,3 +15,10 @@ export const Modal = ({url, tag, onClose, onCloseModal1}) => {
         </Overlay>
     )
 }
+
+Modal.propTypes = {
+    onCloseModal1: PropTypes.func,
+    onClose: PropTypes.func,
+    url: PropTypes.string,
+    tag: PropTypes.string,
+};

@@ -1,4 +1,5 @@
 import { ImageGalleryItem, ImageGalleryItemImage } from "./GalleryItem.styled"
+import PropTypes from 'prop-types';
 
 export function GalleryItem({image, onLoadModal}) {
     return (
@@ -15,3 +16,8 @@ export function GalleryItem({image, onLoadModal}) {
         </ImageGalleryItem>
     )
 }
+
+GalleryItem.propTypes = {
+    onLoadModal: PropTypes.func,
+    image: PropTypes.object,
+};
