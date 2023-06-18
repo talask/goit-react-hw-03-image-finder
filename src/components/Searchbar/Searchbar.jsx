@@ -2,6 +2,34 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { FiSearch } from 'react-icons/fi';
+import { SearchbarHeader, SearchFormBtn } from './Searchbar.styled';
+import styled from 'styled-components';
+
+const SearchForm = styled(Form)`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+  `;
+
+  const SearchFormInput = styled(Field)`
+    display: inline-block;
+    width: 100%;
+    font: inherit;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    &input::placeholder {
+        font: inherit;
+        font-size: 18px;
+      }
+`;
 
 const initialValues = {
     search: '',
@@ -14,7 +42,7 @@ const schema = yup.object().shape({
 export const Searchbar = ({onSubmit}) => {
          
     return (
-        <header>
+        <SearchbarHeader>
             <Formik
                 initialValues = {initialValues}
                 validationSchema = {schema}
@@ -23,19 +51,19 @@ export const Searchbar = ({onSubmit}) => {
                     resetForm();
                 }}
             >
-                <Form>
-                    <button type="submit">
+                <SearchForm>
+                    <SearchFormBtn type="submit">
                         <FiSearch size="16px"/>
-                    </button>
+                    </SearchFormBtn>
 
-                    <Field
+                    <SearchFormInput
                         type="text"
                         name="search"
-                        // placeholder="Search images and photos"
+                        placeholder="Search images and photos"
                     />
                     <ErrorMessage name='search' component="div" />
-                </Form>
+                </SearchForm>
             </Formik>
-        </header>)
+        </SearchbarHeader>)
     
 };

@@ -1,11 +1,12 @@
-import * as basicLightbox from 'basiclightbox';
+import { Overlay, ModalDiv } from "./Modal.styled";
 
-export const Modal = () => {
+export const Modal = ({url, tag, onCloseModal, onCloseModal1}) => {
     return (
-        <div class="overlay">
-            <div class="modal">
-                <img src="" alt="" />
-            </div>
-        </div>
+        <Overlay onClick={onCloseModal} onLoad={onCloseModal1}>
+            <ModalDiv>
+                <img src={url} alt={tag} />
+            </ModalDiv>
+        </Overlay>
     )
 }
+//(e) => onCloseModal(e)

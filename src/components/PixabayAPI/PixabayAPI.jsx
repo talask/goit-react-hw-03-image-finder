@@ -12,12 +12,13 @@ export const options = {
   page: 1,
 }
 
-export const getPixabayAPI = async () => {
-  console.log("!!!")
-   console.log(options)
+export const getPixabayAPI = async (value, page) => {
+    options.page = page;
+    options.q = value;
     const param = objToStr(options);
+   
     const response = await axios.get(`${URL}?${param}`);
-      console.log("1 " + response);
+    
       return response.data;
 
 }
