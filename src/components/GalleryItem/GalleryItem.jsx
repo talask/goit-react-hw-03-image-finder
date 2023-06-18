@@ -9,7 +9,7 @@ export function GalleryItem({image, onLoadModal}) {
                 src={image.webformatURL} 
                 alt={image.tags}
                 width="320px"
-                height="225px"
+                height="100vh"
                 />
             </ImageGalleryItemImage>
         </ImageGalleryItem>
