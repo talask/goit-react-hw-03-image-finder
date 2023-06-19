@@ -1,24 +1,32 @@
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Overlay, ModalDiv } from "./Modal.styled";
 
-export const Modal = ({url, tag, onClose, onCloseModal1}) => {
+//export const Modal = ({url, tag, onClose}) => {
+export class Modal extends Component {
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyDown);
+      }
     
-    return (
-        <Overlay 
-       
-        onClick={onClose} onKeyDown={onCloseModal1}>
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown);
+      }
+    
+    handleKeyDown = (event) => {
+        if (event.key === 'Escape') {
+          // Здесь вызываем функцию для закрытия модального окна
+          this.props.onClose();
+        }
+      }
+      
+    render() {
+        return (
+            <Overlay onClick={this.props.onClose}>
            
-            <ModalDiv>
-           
-                <img src={url} alt={tag} />
-            </ModalDiv>
-        </Overlay>
-    )
+                <ModalDiv>
+                    <img src={this.props.url} alt={this.props.tag} />
+                </ModalDiv>
+             </Overlay>
+        )
+    }
 }
 
-Modal.propTypes = {
-    onCloseModal1: PropTypes.func,
-    onClose: PropTypes.func,
-    url: PropTypes.string,
-    tag: PropTypes.string,
-};
